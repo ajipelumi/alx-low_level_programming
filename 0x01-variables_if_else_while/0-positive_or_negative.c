@@ -1,11 +1,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-/*
- *main - main will assign a random number to the variable n each time
+/**
+ * main - main will assign a random number to the variable n each time
  *
- *Return: 0
- *betty style doc for function main goes there
+ * Return: 0
  */
 	int main(void)
 		{
@@ -13,7 +12,6 @@
 
 		srand(time(0));
 		n = rand() - RAND_MAX / 2;
-		/* your code goes there */
 		if (n > 0)
 		{
 		printf("%d is positive\n", n);
