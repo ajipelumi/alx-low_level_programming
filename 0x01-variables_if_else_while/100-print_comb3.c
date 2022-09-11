@@ -4,15 +4,25 @@
  *
  * Return: 0
  */
-	int main(void)
+int main(void)
 	{
-	int i;
+	 int a, b;
 
-	for (i = '0'; i <= '9'; i = i + 1)
+	for (a = 0; a < 9; a++)
 	{
-	putchar(i,i);
+	for (b = 1; b < 10; b++)
+	{
+	if (a != b && a < b)
+	{
+	putchar(a + '0');
+	putchar(b + '0');
+	if (a != 8 || b != 9)
+	{
 	putchar(',');
 	putchar(' ');
+	}
+	}
+	}
 	}
 	putchar('\n');
 	return (0);
