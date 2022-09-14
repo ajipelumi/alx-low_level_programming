@@ -1,0 +1,16 @@
+#include <main.h>
+/**
+ * main - main prints a charater followed by a new line
+ *
+ * Return: 0
+ */
+void _putchar ()
+{
+  putchar ("_putchar\n");
+  
+}
+
+int main ()
+{
+  _putchar ();
+}
