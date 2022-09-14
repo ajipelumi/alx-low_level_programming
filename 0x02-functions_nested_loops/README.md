@@ -1,1 +1,1 @@
-#This README decribes what each program is doing
+#This README describes what each program is doing
