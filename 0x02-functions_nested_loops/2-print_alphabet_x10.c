@@ -1,4 +1,4 @@
-i#include "main.h"
+#include "main.h"
 
 /**
 * print_alphabet_x10 - Prints a to z ten times followed by a new line
