@@ -13,7 +13,7 @@
 
 char *string_toupper(char *str)
 {
-	int i, j;
+	int i;
 
 	for (i = 0; str[i]; i++)
 	{
