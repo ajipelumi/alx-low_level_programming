@@ -1,4 +1,10 @@
-#This README decribes what each program is doing
+A variable is nothing but a name given to a storage area that our programs can manipulate. 
+Each variable in C has a specific data type, which determines the size and layout of the variable's memory; 
+the range of values that can be stored within that memory; and the set of operations that can be applied to the variable.
+An if statement consists of a boolean expression followed by one or more statements. 
+An if statement can be followed by an optional else statement, which executes when the Boolean expression is false.
+
+This README decribes what each program is doing;
 
 The file 0-positive_or_negative.c is a program that will assign a random number to the variable n each time it is executed.
 
