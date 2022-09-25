@@ -1,4 +1,8 @@
-#This README decribes what each script and program is doing
+A compiler translates the code written in one language to some other language without changing the meaning of the program. 
+The compiler makes the target code efficient and optimized in terms of time and space. 
+The compilation process can be divided into four steps: Pre-processing, Compiling, Assembling, and Linking.
+
+This README decribes what each script and program is doing;
 
 The file 0-preprocessor is a script that runs a C file through the preprocessor and save the result into another file.
 
