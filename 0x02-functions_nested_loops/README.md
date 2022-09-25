@@ -5,6 +5,10 @@ You can define any type of loop inside another loop; for example, you can define
 
 This README describes what each program is doing;
 
+The file main.h is a local header file that contains function definitions.
+
+The file _putchar.c is a function that allows the usage of _putchar to print.
+
 The file 0-putchar.c is a program that prints _putchar, followed by a new line.
 
 The file 1-alphabet.c is a function that prints the alphabet, in lowercase, followed by a new line.
