@@ -16,15 +16,15 @@ char *_strdup(char *str)
 	int i, len;
 	char *ptr;
 
+	if (!str)
+	{
+	return (NULL);
+	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
 
 	}
 	len = i;
-	if (!str)
-	{
-	return (NULL);
-	}
 	if (str == NULL)
 	{
 	return (NULL);
