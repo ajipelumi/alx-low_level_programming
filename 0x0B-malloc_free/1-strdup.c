@@ -21,7 +21,11 @@ char *_strdup(char *str)
 
 	}
 	len = i;
-	if (!str || !str[0])
+	if (!str)
+	{
+	return (NULL);
+	}
+	if (str == NULL)
 	{
 	return (NULL);
 	}
