@@ -3,7 +3,7 @@
 /**
  * print_times_table - prints the n times table, starting with 0
  *
- * @n: n times table
+ * @n: number input
  *
  * Return: void
  */
@@ -12,12 +12,15 @@ void print_times_table(int n)
 {
 	int i, j, multi;
 
-	if (n <= 15 || n >= 0)
+	if (n <= 15 && n >= 0)
 	{
 	for (i = 0; i <= n; i++)
 	{
-	for (j = 0; j <= n; j++)
+	_putchar(48);
+	for (j = 1; j <= n; j++)
 	{
+	_putchar(',');
+	_putchar(' ');
 	multi = i * j;
 	if (multi <= 9)
 	_putchar(' ');
@@ -37,11 +40,6 @@ void print_times_table(int n)
 	else
 	{
 	_putchar(multi + 48);
-	}
-	if (j != n)
-	{
-	_putchar(',');
-	_putchar(' ');
 	}
 	}
 	_putchar('\n');
