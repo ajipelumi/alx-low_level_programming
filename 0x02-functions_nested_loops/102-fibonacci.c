@@ -12,8 +12,8 @@
 int main(void)
 {
 	int i;
-	[long] unsigned int fb1 = 0, fb2 = 1;
-	[long] unsigned int sum;
+	unsigned long fb1 = 0, fb2 = 1;
+	unsigned long sum;
 
 	for (i = 0; i < 50; i++)
 	{
