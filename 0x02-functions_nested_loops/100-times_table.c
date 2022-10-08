@@ -19,6 +19,10 @@ void print_times_table(int n)
 	for (j = 0; j <= n; j++)
 	{
 	multi = i * j;
+	if (multi <= 9)
+	_putchar(' ');
+	if (multi <= 99)
+	_putchar(' ');
 	if (multi >= 100)
 	{
 	_putchar((multi / 100) + 48);
