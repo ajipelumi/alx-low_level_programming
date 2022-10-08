@@ -12,13 +12,13 @@
 int main(void)
 {
 	int i;
-	unsigned long fb1 = 0, fb2 = 1;
-	unsigned long sum;
+	unsigned long long fb1 = 0, fb2 = 1;
+	unsigned long long sum;
 
 	for (i = 0; i < 98; i++)
 	{
 	sum = fb1 + fb2;
-	printf("%lu", sum);
+	printf("%llu", sum);
 	fb1 = fb2;
 	fb2 = sum;
 	if (i != 97)
