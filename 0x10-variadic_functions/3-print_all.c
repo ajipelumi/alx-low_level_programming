@@ -20,7 +20,9 @@ void print_all(const char * const format, ...)
 
 	va_start(ap, format);
 	len = strlen(format);
-	while (format && format[i] && i < len)
+	if (format)
+	{
+	while (format[i] && i < len)
 	{
 	switch (format[i])
 	{
@@ -47,6 +49,7 @@ void print_all(const char * const format, ...)
 	}
 	separator = ", ";
 	i++;
+	}
 	}
 	va_end(ap);
 	printf("\n");
