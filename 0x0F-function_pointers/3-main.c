@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 	}
 	if ((*operator == 47 || *operator == 37) && num2 == 0)
 	{
+	printf("Error\n");
 	exit(100);
 	}
 	ptr = get_op_func(operator);
