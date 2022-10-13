@@ -42,8 +42,8 @@ void print_all(const char * const format, ...)
 		}
 		printf("%s%s", separator, ptr);
 	default:
-	i++;
-	continue;
+		i++;
+		continue;
 	}
 	separator = ", ";
 	i++;
