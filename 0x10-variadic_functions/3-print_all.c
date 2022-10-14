@@ -38,6 +38,7 @@ void print_all(const char * const format, ...)
 			ptr =  va_arg(ap, char *);
 			if (ptr == NULL)
 			{
+			printf("%s", separator);
 			printf("(nil)");
 			return;
 			}
