@@ -1,6 +1,6 @@
 #include "variadic_functions.h"
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 #include <string.h>
 
 /**
@@ -13,10 +13,9 @@
 
 void print_all(const char * const format, ...)
 {
+	unsigned int i = 0, len;
 	va_list ap;
-	unsigned int i, len;
-	char *ptr;
-	char *separator = "";
+	char *separator = "", *ptr;
 
 	va_start(ap, format);
 	len = strlen(format);
@@ -26,31 +25,31 @@ void print_all(const char * const format, ...)
 	{
 	switch (format[i])
 	{
-	case 'c':
-		printf("%s%c", separator, va_arg(ap, int));
-		break;
-	case 'i':
-		printf("%s%d", separator, va_arg(ap, int));
-		break;
-	case 'f':
-		printf("%s%f", separator, va_arg(ap, double));
-		break;
-	case 's':
-		ptr = va_arg(ap, char *);
-		if (ptr == NULL)
-		{
-		printf("(nil)");
-		return;
-		}
-		printf("%s%s", separator, ptr);
-	default:
-		i++;
-		continue;
+		case 'c':
+			printf("%s%c", separator, va_arg(ap, int));
+			break;
+		case 'i':
+			printf("%s%d", separator, va_arg(ap, int));
+			break;
+		case 'f':
+			printf("%s%f", separator, va_arg(ap, double));
+			break;
+		case 's':
+			ptr =  va_arg(ap, char *);
+			if (ptr == NULL)
+			{
+			printf("(nil)");
+			}
+			printf("%s%s", separator, ptr);
+			break;
+		default:
+			i++;
+			continue;
 	}
 	separator = ", ";
 	i++;
 	}
 	}
-	va_end(ap);
 	printf("\n");
+	va_end(ap);
 }
