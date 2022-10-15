@@ -1,4 +1,4 @@
-<img src="https://github.com/ajipelumi/alx-low_level_programming/blob/cbfcd46abe8602985875e7a99887d1bf3750df81/c_is_not_fun.jpg" alt="c is not fun" width="500">
+<img src="https://github.com/ajipelumi/alx-low_level_programming/blob/cbfcd46abe8602985875e7a99887d1bf3750df81/c_is_fun.png" alt="c is fun" width="500">
 Image Credit: Ajisafe Oluwapelumi
 
 ##
