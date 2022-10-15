@@ -1,5 +1,5 @@
-<img src="https://github.com/ajipelumi/alx-low_level_programming/blob/cbfcd46abe8602985875e7a99887d1bf3750df81/c_is_fun.png" alt="c is fun" width="500">
-Image Credit: Ajisafe Oluwapelumi
+<img src="https://github.com/ajipelumi/alx-low_level_programming/blob/8556aa0ca1c5dbf0e1fe58d723333acddca2f55c/c_is_fun.png" alt="c is fun" width="500">
+Image Credit: Wikipedia
 
 ##
 
