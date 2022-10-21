@@ -11,7 +11,7 @@ main:
 	; we now exit the program
 
 	mov rax, 60		; call system to exit (sys_exit)
-	mov rdi, rdi		; exit code
+	mov rdi, 0		; exit code
 	syscall 		; invoke operating system to exit
 
 section .data:	;data section
