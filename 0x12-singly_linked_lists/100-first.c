@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* The constructor attribute to print_first() executes before main */
+/* constructor attribute to print_first() makes it execute before main */
 
 void print_first(void) __attribute__ ((constructor));
 
