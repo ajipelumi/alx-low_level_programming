@@ -1,10 +1,6 @@
 #include <stdio.h>
 
-/**
- * The constructor attribute to print_first() allows it
- * to be executed before the main function is executed.
- * Use the destructor atrribute to execute after main.
- */
+/* The constructor attribute to print_first() executes before main */
 
 void print_first(void) __attribute__ ((constructor));
 
