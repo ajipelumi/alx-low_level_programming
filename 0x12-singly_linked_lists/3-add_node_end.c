@@ -16,7 +16,7 @@ unsigned int _strlen(char *str);
 
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, temp;
+	list_t *new_node, *temp;
 	char *ptr;
 
 	if (head != NULL && str != NULL)
@@ -45,7 +45,7 @@ list_t *add_node_end(list_t **head, const char *str)
 			temp->next = new_node;
 		}
 	}
-	return (*head);
+	return (temp);
 }
 
 /**
