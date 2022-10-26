@@ -15,40 +15,26 @@
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int count;
-	listint_t *new, *temp;
+	listint_t *temp, *new;
+	unsigned int i = 0;
 
 	temp = *head; /* store first node */
-
-	new = malloc(sizeof(listint_t));
-	if ((*head == NULL && idx != 0) || !new)
-	{
-		return (NULL);
-	}
-	new->n = n;
-	/* iterate list to node position index - 2 */
-	for (count = 0; head != NULL && count < (idx - 1); count++)
+	while (temp && i < (idx - 1)) /* iterate list to node position index - 2 */
 	{
 		temp = temp->next;
 		if (temp == NULL)
 		{
 			return (NULL);
 		}
+		i++;
 	}
-	if (idx == 0) /* if the index for new is 0 */
+	new = malloc(sizeof(listint_t));
+	if (!new)
 	{
-		new->next = *head; /* move first node to second node*/
-		*head = new; /* head now points to new */
+		return (NULL);
 	}
-	else if (temp->next) /* if the index for new is not 0 */
-	{
-		new->next = temp->next; /* link temp->next node after new node */
-		temp->next = new; /* link the previous node to new node */
-	}
-	else /* if the index is not present in the list */
-	{
-		new->next = NULL; /* next address bcomes NULL */
-		temp->next = new; /* link previous node to new node */
-	}
+	new->n = n;
+	new->next = temp->next; /* link temp->next node after new node */
+	temp->next = new; /* link the previous node to new node */
 	return (new);
 }
