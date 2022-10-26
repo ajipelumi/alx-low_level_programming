@@ -21,10 +21,13 @@ int pop_listint(listint_t **head)
 	}
 	else
 	{
-		temp = *head;
-		*head = temp->next;
-		count = temp->n;
-		free(temp);
+		while (head != NULL)
+		{
+			temp = *head;
+			*head = temp->next;
+			count = temp->n;
+			free(temp);
+		}
 	}
 	return (count);
 }
