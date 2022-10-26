@@ -18,21 +18,32 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int count;
 	listint_t *new, *temp;
 
-	/* store first address */
-	temp = *head;
-	/* iterate through nodes till the index nth node */
-	for (count = 1; count < idx && head != NULL; count++)
-	{
-		temp = temp->next;
-	}
-	new = malloc(sizeof(listint_t)); /* new node */
-	if (!new)
+	temp = *head; /* store first node */
+
+	new = malloc(sizeof(listint_t));
+	if ((!(*head) && idx != 0) || !new)
 	{
 		return (NULL);
 	}
 	new->n = n;
-	new->next = temp->next;
-	temp->next = new;
-	/* return head */
+	/* iterate list to node position index - 2 */
+	for (count = 0; count < (idx - 1) && head; count++)
+	{
+		temp = temp->next;
+		if (!temp)
+		{
+			return (NULL);
+		}
+	}
+	if (idx == 0) /* if the index for new is 0 */
+	{
+		new->next = *head; /* move first node to second node*/
+		*head = new; /* head now points to new */
+	}
+	else /* if the index for new is not 0 */
+	{
+		new->next = temp->next; /* link temp->next node after new node */
+		temp->next = new; /* link the previous node to new node */
+	}
 	return (*head);
 }
