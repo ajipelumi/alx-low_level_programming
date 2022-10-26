@@ -18,7 +18,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int count;
 	listint_t *new, *temp;
 
-	temp = *head /* store first address */
+	/* store first address */
+	temp = *head;
 	/* iterate through nodes till the index nth node */
 	for (count = 1; count < idx && head != NULL; count++)
 	{
