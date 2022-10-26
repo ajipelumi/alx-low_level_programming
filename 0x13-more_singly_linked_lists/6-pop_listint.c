@@ -15,19 +15,16 @@ int pop_listint(listint_t **head)
 	int count;
 	listint_t *temp;
 
-	if (head == NULL)
+	if (head == NULL || *head == NULL)
 	{
 		return (0);
 	}
 	else
 	{
-		while (head != NULL)
-		{
-			temp = *head;
-			*head = temp->next;
-			count = temp->n;
-			free(temp);
-		}
+		temp = *head;
+		*head = temp->next;
+		count = temp->n;
+		free(temp);
 	}
 	return (count);
 }
