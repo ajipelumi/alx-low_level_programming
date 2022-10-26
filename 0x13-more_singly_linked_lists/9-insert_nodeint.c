@@ -40,10 +40,15 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		new->next = *head; /* move first node to second node*/
 		*head = new; /* head now points to new */
 	}
-	else /* if the index for new is not 0 */
+	else if (temp->next) /* if the index for new is not 0 */
 	{
 		new->next = temp->next; /* link temp->next node after new node */
 		temp->next = new; /* link the previous node to new node */
+	}
+	else /* if the index is not present in the list */
+	{
+		new->next = NULL; /* next address bcomes NULL */
+		temp->next = new; /* link previous node to new node */
 	}
 	return (*head);
 }
