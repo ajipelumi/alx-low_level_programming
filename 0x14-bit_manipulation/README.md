@@ -5,12 +5,12 @@ Image Credit: Hacker Earth
 
 **Bit Manipulation** is a technique used in a variety of problems to get the solution in an optimized way. It is all about Bitwise Operators which directly works upon binary numbers or bits of numbers that help the implementation fast. Below are the **Bitwise Operators** that are used:
 
-- Bitwise AND (&)
-- Bitwise OR (|)
-- Bitwise XOR (^)
-- Bitwise NOT (~)
-- Left Shift (<<)
-- Right Shift (>>)
+- Bitwise AND ( & )
+- Bitwise OR ( | )
+- Bitwise XOR ( ^ )
+- Bitwise NOT ( ~ )
+- Left Shift ( << )
+- Right Shift ( >> )
 
 Bitwise operators are good for saving space and sometimes to cleverly remove dependencies.
 
