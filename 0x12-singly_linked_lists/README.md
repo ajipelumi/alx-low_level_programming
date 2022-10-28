@@ -1,6 +1,6 @@
 A _linked list_ is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers as shown in the below image:
 
-<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist.png" alt="linked list" width="400">
+<img src="https://github.com/ajipelumi/alx-low_level_programming/blob/8b3a72ab9c01f24e1b4f5d6bcf7afd1472530067/images/linked_list.png" alt="linked list" width="400">
 Image Credit: Geeksforgeeks
 
 ##
