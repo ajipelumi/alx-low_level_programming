@@ -1,4 +1,4 @@
-<img src="https://he-s3.s3.amazonaws.com/media/uploads/cb985c2.png" alt="bitwise operators" width="400">
+<img src="https://github.com/ajipelumi/alx-low_level_programming/blob/04bdcae8ef23fad41e68509889213b106711a5e3/images/bitwise_operators.png" alt="bitwise operators" width="400">
 Image Credit: Hacker Earth
 
 ##
