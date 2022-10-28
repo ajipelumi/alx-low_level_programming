@@ -23,6 +23,6 @@ The file `3-add_node_end.c` is a function that adds a new node at the end of a l
 
 The file `4-free_list.c` is a function that frees a list_t list.
 
-The file `100-first.c` is a function that prints You're beat! and yet, you must allow,\nI bore my house upon my back!\n before the main function is executed.
+The file `100-first.c` is a function that prints `You're beat! and yet, you must allow,\nI bore my house upon my back!\n` before the main function is executed.
 
 The file `101-hello_holberton.asm` is a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
