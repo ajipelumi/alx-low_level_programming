@@ -18,37 +18,24 @@ int _strlen(char *str);
 
 int create_file(const char *filename, char *text_content)
 {
-	char *buffer;
-	ssize_t fd_r, fd_w;
+	ssize_t fd_w;
 	int fd, len;
 
 	if (filename == NULL) /* if text file does not exist */
 	{
 		return (-1);
 	}
-	fd = open(filename, O_RDONLY | O_CREAT | O_TRUNC, 0600);
-	if (fd == -1) /* if the file cannot be opened */
+	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
+	if (fd == -1) /* if the file cannot be created */
 	{
 		return (-1);
 	}
 	len = _strlen(text_content);
-	buffer = malloc(sizeof(char) * (len + 1));
-	if (buffer == NULL) /* if there is no space in memory */
+	fd_w = write(fd, text_content, len);
+	if (fd_w == -1 || fd_w != len) /* if write fails */
 	{
 		return (-1);
 	}
-	fd_r = read(fd, buffer, len);
-	buffer[len] = '\0'; /* NULL terminated string */
-	if (fd_r == -1) /* if the file cannot be read */
-	{
-		return (-1);
-	}
-	fd_w = write(STDOUT_FILENO, buffer, fd_r);
-	if (fd_w == -1 || fd_w != fd_r) /* if write fails or bytes read != write */
-	{
-		return (-1);
-	}
-	free(buffer);
 	close(fd);
 	return (1);
 }
@@ -56,7 +43,7 @@ int create_file(const char *filename, char *text_content)
 /**
  * _strlen - checks for string length
  *
- * @str - string to be scanned
+ * @str: string to be scanned
  *
  * Return: length of string
  */
