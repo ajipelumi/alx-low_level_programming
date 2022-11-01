@@ -72,13 +72,13 @@ void file_copy(char *src, char *dest)
 	close1 = close(fd1);
 	if (close1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fd1);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", close1);
 		exit(100);
 	}
 	close2 = close(fd2);
 	if (close2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", close2);
 		exit(100);
 	}
 }
