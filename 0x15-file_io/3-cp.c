@@ -5,6 +5,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define MAX 1024
+
 void file_copy(char *src, char *dest);
 
 /**
@@ -38,8 +40,8 @@ int main(int argc, char *argv[])
 
 void file_copy(char *src, char *dest)
 {
-	char *buffer;
-	int fd1, fd2, fd_r, fd_w;
+	char buffer[MAX];
+	int fd1, fd2, fd_r, fd_w, close1, close2;
 
 	fd1 = open(src, O_RDONLY);
 	if (src == NULL || fd1 == -1) /* if file can't be opened */
@@ -53,24 +55,30 @@ void file_copy(char *src, char *dest)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 		exit(99);
 	}
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
+	while ((fd_r = read(fd1, buffer, MAX)) != 0) /* reads the entire file */
 	{
-		exit(-1);
+		if (fd_r == -1) /* if file can't be read */
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
+			exit(98);
+		}
+		fd_w = write(fd2, buffer, fd_r);
+		if (fd_w == -1 || fd_w != fd_r) /* if write fails */
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
+			exit(99);
+		}
 	}
-	fd_r = read(fd1, buffer, 1024);
-	if (fd_r == -1) /* if file can't be read */
+	close1 = close(fd1);
+	if (close1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fd1);
+		exit(100);
 	}
-	fd_w = write(fd2, buffer, fd_r);
-	if (fd_w == -1 || fd_w != fd_r) /* if write fails */
+	close2 = close(fd2);
+	if (close2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fd2);
+		exit(100);
 	}
-	free(buffer);
-	close(fd1);
-	close(fd2);
 }
