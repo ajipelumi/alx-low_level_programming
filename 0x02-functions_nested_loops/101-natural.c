@@ -4,8 +4,6 @@
  * main - prints the sum of all the multiples of 3 or 5
  * below 1024 (excluded), followed by a new line
  *
- * @void: no input
- *
  * Return: 0
  */
 
@@ -15,11 +13,12 @@ int main(void)
 
 	for (i = 0; i < 1024; i++)
 	{
-	if ((i % 3) == 0 || (i % 5) == 0)
-	{
-	sum = sum + i;
+		/* check for multiples of 3 and 5 */
+		if ((i % 3) == 0 || (i % 5) == 0)
+		{
+			sum = sum + i; /* sum increases when a multiple is met */
+		}
 	}
-	}
-	printf("%d\n", sum);
+	printf("%d\n", sum); /* print the sum */
 	return (0);
 }
