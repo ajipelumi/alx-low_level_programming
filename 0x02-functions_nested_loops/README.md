@@ -40,3 +40,5 @@ The file 101-natural.c is a program that computes and prints the sum of all the 
 The file 102-fibonacci.c is a program that prints the first 50 Fibonacci numbers, starting with 1 and 2, followed by a new line.
 
 The file 103-fibonacci.c is a program that finds and prints the sum of the even-valued terms, followed by a new line.
+
+The file 104-fibonacci.c is a program that prints the first 98 Fibonacci numbers, starting with 1 and 2, followed by a new line.
