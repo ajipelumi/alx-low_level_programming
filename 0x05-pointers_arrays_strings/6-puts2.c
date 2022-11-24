@@ -14,17 +14,18 @@ void puts2(char *str)
 {
 	int i, length;
 
+	/* loop through string */
 	for (i = 0; str[i] != '\0'; i++)
 	{
-
+		; /* get string length */
 	}
-	length = i;
-	for (i = 0; i < length; i++)
+	length = i; /* assign string length to length */
+	for (i = 0; i < length; i++) /* loop through string */
 	{
-	if (i % 2 == 0)
-	{
-	_putchar(str[i]);
+		if (i % 2 == 0) /* if index is even number */
+		{
+			_putchar(str[i]); /* print one character at a time */
+		}
 	}
-	}
-	_putchar('\n');
+	_putchar('\n'); /* print newline */
 }

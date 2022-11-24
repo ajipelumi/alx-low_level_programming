@@ -12,39 +12,29 @@
 
 int _atoi(char *s)
 {
-	int a, b, c, d, length, digit;
+	int len, sign, digit;
 
-	a = 0;
-	b = 0;
-	c = 0;
-	d = 0;
-	length = 0;
+	len = 0;
 	digit = 0;
+	sign = 1;
 
-	while (s[length] != '\0')
-		length++;
-
-	while (a < length && d == 0)
+	while (s[len] != '\0') /* loop through string */
 	{
-		if (s[a] == '-')
-			++b;
-
-		if (s[a] >= '0' && s[a] <= '9')
+		if (s[len] == '-') /* if a minus sign is met */
 		{
-			digit = s[a] - '0';
-			if (b % 2)
-				digit = -digit;
-			c = c * 10 + digit;
-			d = 1;
-			if (s[a + 1] < '0' || s[a + 1] > '9')
-				break;
-			d = 0;
+			sign = sign * -1; /* sign is adjusted */
 		}
-		a++;
+		/* if character is between 0 and 9 */
+		else if (s[len] >= '0' && s[len] <= '9')
+		{
+			/* convert character to integer */
+			digit = (digit * 10) + (s[len] - '0');
+		}
+		else if (digit > 0) /* if digit is positive */
+		{
+			break; /* exit while loop */
+		}
+		len++; /* go to next string */
 	}
-
-	if (d == 0)
-		return (0);
-
-	return (c);
+	return (digit * sign); /* return digit * sign */
 }

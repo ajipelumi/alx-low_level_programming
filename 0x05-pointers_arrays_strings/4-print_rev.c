@@ -11,15 +11,16 @@
 
 void print_rev(char *s)
 {
-	int i;
+	int len;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (len = 0; s[len] != '\0'; len++)
 	{
-
+		; /* gets string length */
 	}
-	for (--i; i >= 0; --i)
+	/* decrease len to exempt null character and loop through string */
+	for (--len; len >= 0; --len)
 	{
-	_putchar(s[i]);
+		_putchar(s[len]); /* print one character at a time */
 	}
-	_putchar('\n');
+	_putchar('\n'); /* print newline */
 }

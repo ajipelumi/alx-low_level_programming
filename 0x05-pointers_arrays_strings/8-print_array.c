@@ -15,14 +15,15 @@ void print_array(int *a, int n)
 {
 	int i;
 
+	/* iterate through array */
 	for (i = 0; i < n; i++)
 	{
-	printf("%d", a[i]);
-	if (i != (n - 1))
-	{
-	printf(",");
-	printf(" ");
+		printf("%d", a[i]); /* print array element one after another */
+		if (i != (n - 1)) /* if last element is not met */
+		{
+			printf(","); /* print comma */
+			printf(" "); /* print space */
+		}
 	}
-	}
-	printf("\n");
+	printf("\n"); /* print newline */
 }

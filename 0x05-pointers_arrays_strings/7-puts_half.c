@@ -11,30 +11,29 @@
 
 void puts_half(char *str)
 {
-	int i, length;
+	int i, length, middle;
 
+	/* loop through string */
 	for (i = 0; str[i] != '\0'; i++)
 	{
-
+		; /* get string length */
 	}
-	length = i;
-	if (length % 2 == 0)
+	length = i; /* assign string length to length */
+	if (length % 2 == 0) /* if length is an even number */
 	{
-	int middle = length / 2;
-
-	for (i = middle; i < length; i++)
+		middle = length / 2; /* get middle */
+		for (i = middle; i < length; i++) /* loop from half of the string */
+		{
+			_putchar(str[i]); /* print one character at a time */
+		}
+	}
+	else /* if length is an odd number */
 	{
-	_putchar(str[i]);
+		middle = (length - 1) / 2; /* get middle */
+		for (i = (middle + 1); i < length; i++) /* loop from half of the string */
+		{
+			_putchar(str[i]); /* print one character at a time */
+		}
 	}
-	}
-	else
-	{
-	int middle = (length - 1) / 2;
-
-	for (i = (middle + 1); i < length; i++)
-	{
-	_putchar(str[i]);
-	}
-	}
-	_putchar('\n');
+	_putchar('\n'); /* print newline */
 }
