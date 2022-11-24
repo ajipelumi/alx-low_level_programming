@@ -10,28 +10,29 @@
 
 void print_diagonal(int n)
 {
-	if (n > 0)
-	{
-	int count = 0;
+	int count;
+	int space;
 
-	int space = 0;
-
-	while (n)
+	if (n > 0) /* if n is greater than 0 */
 	{
-	space = count;
-	while (space)
+		count = 0;
+		space = 0;
+		while (n) /* loop until n is 0 */
+		{
+			space = count;
+			while (space)
+			{
+				_putchar(' '); /* print space */
+				space--;
+			}
+			_putchar(92); /* print '\' */
+			_putchar('\n'); /* print mewline */
+			n--; /* n decreases */
+			count++; /* count increases */
+		}
+	}
+	else /* n is less than or equal to 0 */
 	{
-	_putchar(' ');
-	space--;
-	}
-	_putchar(92);
-	_putchar('\n');
-	n--;
-	count++;
-	}
-	}
-	else
-	{
-	_putchar('\n');
+		_putchar('\n'); /* print newline */
 	}
 }

@@ -10,28 +10,30 @@
 
 void print_triangle(int size)
 {
-	if (size > 0)
-	{
 	int hgt, base;
 
-	for (hgt = 1; hgt <= size; hgt++)
+	if (size > 0) /* if size is greater than 0 */
 	{
-	for (base = 1; base <= size; base++)
-	{
-	if ((hgt + base) <= size)
-	{
-	_putchar(' ');
+		/* loop from height to size */
+		for (hgt = 1; hgt <= size; hgt++)
+		{
+			/* loop from base to size */
+			for (base = 1; base <= size; base++)
+			{
+				if ((hgt + base) <= size)
+				{
+					_putchar(' '); /* print space */
+				}
+				else
+				{
+					_putchar(35); /* print '#' */
+				}
+			}
+			_putchar('\n'); /* print newline */
+		}
 	}
 	else
 	{
-	_putchar(35);
-	}
-	}
-	_putchar('\n');
-	}
-	}
-	else
-	{
-	_putchar('\n');
+		_putchar('\n'); /* print newline */
 	}
 }

@@ -11,12 +11,12 @@
 
 int _isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
+	if (c >= 48 && c <= 57) /* check if input is a digit */
 	{
-	return (1);
+		return (1); /* input is a digit */
 	}
 	else
 	{
-	return (0);
+		return (0); /* input is not a digit */
 	}
 }

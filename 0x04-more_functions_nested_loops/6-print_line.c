@@ -10,21 +10,22 @@
 
 void print_line(int n)
 {
-	if (n > 0)
-	{
-	int count = n;
+	int count;
+	int k;
 
-	int k = 0;
-
-	while (k < count)
+	if (n > 0) /* if n is greater than 0 */
 	{
-	_putchar('_');
-	k++;
+		count = n;
+		k = 0;
+		while (k < count) /* loop from 0 to count */
+		{
+			_putchar('_'); /* print line */
+			k++;
+		}
+		_putchar('\n'); /* print newline */
 	}
-	_putchar('\n');
-	}
-	else
+	else /* n is less than or equal to 0 */
 	{
-	_putchar('\n');
+		_putchar('\n'); /* print newline */
 	}
 }

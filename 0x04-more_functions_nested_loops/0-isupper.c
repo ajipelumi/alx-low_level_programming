@@ -11,12 +11,12 @@
 
 int _isupper(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 65 && c <= 90) /* check if character is uppercase */
 	{
-	return (1);
+		return (1); /* character is uppercase */
 	}
 	else
 	{
-	return (0);
+		return (0); /* character is lowercase */
 	}
 }

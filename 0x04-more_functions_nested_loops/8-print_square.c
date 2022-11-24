@@ -10,28 +10,29 @@
 
 void print_square(int size)
 {
-	if (size > 0)
-	{
-	int count = size;
+	int count;
+	int size_breadth;
+	int size_length;
 
-	int size_breadth = 0;
-
-	while (size_breadth < count)
+	if (size > 0) /* if size is greater than 0 */
 	{
-	int size_length = 1;
-
-	while (size_length < count)
+		count = size;
+		size_breadth = 0;
+		while (size_breadth < count) /* loop from breadth to count */
+		{
+			size_length = 1;
+			while (size_length < count) /* loop from length to count */
+			{
+				_putchar(35); /* print '#' */
+				size_length++; /* increase lenght until count */
+			}
+			_putchar(35); /* print '#' */
+			_putchar('\n'); /* print newline */
+			size_breadth++; /* increase breadth until count */
+		}
+	}
+	else /* size is less than or equal to 0 */
 	{
-	_putchar(35);
-	size_length++;
-	}
-	_putchar(35);
-	_putchar('\n');
-	size_breadth++;
-	}
-	}
-	else
-	{
-	_putchar('\n');
+		_putchar('\n'); /* print newline */
 	}
 }
