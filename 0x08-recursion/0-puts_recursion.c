@@ -11,14 +11,14 @@
 
 void _puts_recursion(char *s)
 {
-	if (*s == '\0')
+	if (*s == '\0') /* if null byte is met */
 	{
-	_putchar('\n');
+		_putchar('\n');
 	}
-	else
+	else /* null byte is not met */
 	{
-	_putchar(*s);
-	s++;
-	_puts_recursion(s);
+		_putchar(*s); /* print character one at a time */
+		s++; /* go to the next character */
+		_puts_recursion(s); /* call function again */
 	}
 }

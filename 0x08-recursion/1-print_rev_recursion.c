@@ -11,14 +11,15 @@
 
 void _print_rev_recursion(char *s)
 {
-	if (*s == '\0')
+	if (*s == '\0') /* if null byte is met */
 	{
-	return;
+		return;
 	}
-	else
+	else /* null byte is not met */
 	{
-	s++;
-	_print_rev_recursion(s);
+		s++; /* go to the next character */
+		_print_rev_recursion(s); /* call function again */
 	}
-	_putchar(*--s);
+	/* function is called until null byte and then printed in reverse */
+	_putchar(*--s); /* print one character at a time */
 }

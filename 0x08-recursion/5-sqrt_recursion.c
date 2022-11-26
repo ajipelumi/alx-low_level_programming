@@ -12,16 +12,17 @@
 
 int _sqrt_fact(int n, int guess)
 {
-	if (guess * guess == n)
+	/* we start guessing from 1 */
+	if (guess * guess == n) /* if the square of guess is equal to number */
 	{
-	return (guess);
+		return (guess); /* return our guess number */
 	}
-	if (guess > n)
+	if (guess > n) /* if guess number is greater than number */
 	{
-	return (-1);
+		return (-1);
 	}
-	guess++;
-	return (_sqrt_fact(n, guess));
+	guess++; /* increase guess by 1 */
+	return (_sqrt_fact(n, guess)); /* call function again with new guess */
 }
 
 /**
@@ -34,12 +35,13 @@ int _sqrt_fact(int n, int guess)
 
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
+	if (n < 0) /* if number is less than 0 */
 	{
-	return (-1);
+		return (-1);
 	}
-	else
+	else /* number is greater than or equal to 0 */
 	{
-	return (_sqrt_fact(n, 1));
+		/* we call func to get the root number */
+		return (_sqrt_fact(n, 1)); /* return square root */
 	}
 }

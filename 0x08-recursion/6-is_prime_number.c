@@ -13,13 +13,14 @@ int prime_fact(int n, int guess);
 
 int is_prime_number(int n)
 {
-	if (n < 2)
+	if (n < 2) /* if number is less than 2 */
 	{
-	return (0);
+		return (0);
 	}
-	else
+	else /* number is greater than or equal to 2 */
 	{
-	return (prime_fact(n, n - 1));
+		/* we call func to check for prime factor */
+		return (prime_fact(n, n - 1));
 	}
 }
 
@@ -34,14 +35,14 @@ int is_prime_number(int n)
 
 int prime_fact(int n, int guess)
 {
-	if (guess * guess == n)
+	if (guess * guess == n) /* if the square of guess is equal to number */
 	{
-	return (0);
+		return (0); /* number is not a prime number */
 	}
-	else if (guess == 1)
+	else if (guess == 1) /* if guess is 1 */
 	{
-	return (1);
+		return (1); /* number is a prime number */
 	}
-	guess--;
-	return (prime_fact(n, guess));
+	guess--; /* decrease guess by 1 */
+	return (prime_fact(n, guess)); /* call function again with new guess */
 }

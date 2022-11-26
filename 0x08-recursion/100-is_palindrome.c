@@ -13,13 +13,14 @@ int _strlen_recursion(char *s);
  */
 int is_palindrome(char *s)
 {
-	if (*s == 0)
+	if (*s == 0) /* if string is empty */
 	{
-	return (1);
+		return (1); /* it is a palindrome */
 	}
-	else
+	else /* string is not empty */
 	{
-	return (_pal(s, 0, _strlen_recursion(s)));
+		/* call function to examine characters and return */
+		return (_pal(s, 0, _strlen_recursion(s)));
 	}
 }
 
@@ -33,13 +34,14 @@ int is_palindrome(char *s)
 
 int _strlen_recursion(char *s)
 {
-	if (*s == '\0')
+	if (*s == '\0') /* if null byte is met */
 	{
-	return (0);
+		return (0);
 	}
-	else
+	else /* null byte is not met */
 	{
-	return (1 + _strlen_recursion(s + 1));
+		/* point to next character and return length */
+		return (1 + _strlen_recursion(s + 1));
 	}
 }
 
@@ -55,16 +57,23 @@ int _strlen_recursion(char *s)
 
 int _pal(char *s, int i, int len)
 {
+	/**
+	 * the first and last characters are going to be compared, if they
+	 * are not equal 0 is returned, however, if they are equal, the
+	 * the index is increased and the 2nd and 2nd to the last characters
+	 * are examined and the loop runs till the index equals the string length
+	 */
 	if (*(s + i) != *(s + len - 1))
 	{
-	return (0);
+		return (0); /* string is not a palindrome */
 	}
-	else if (i >= len)
+	else if (i >= len) /* if index is equal to string length (base condition */
 	{
-	return (1);
+		return (1); /* string is palindrome */
 	}
 	else
 	{
-	return (_pal(s, i + 1, len - 1));
+		/* increases index to examine the next characters */
+		return (_pal(s, i + 1, len - 1));
 	}
 }

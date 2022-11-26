@@ -12,15 +12,16 @@
 
 int _strlen_recursion(char *s)
 {
-	if (*s == '\0')
-	{
-	return (0);
-	}
-	else
-	{
 	int count;
 
-	s++;
-	return (count = 1 + _strlen_recursion(s));
+	if (*s == '\0') /* if null byte is met */
+	{
+		return (0);
+	}
+	else /* null byte is not met */
+	{
+		s++; /* point to the next character */
+		/* count is updated everytime the func returns until a null byte is met */
+		return (count = 1 + _strlen_recursion(s));
 	}
 }
