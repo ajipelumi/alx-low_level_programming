@@ -13,8 +13,20 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int len;
+	int i, j;
+	unsigned int count = 0;
 
-	len = strspn(s, accept);
-	return (len);
+	/* loop until substring */
+	for (i = 0; s[i] != ' '; i++) /* space terminates substring */
+	{
+		/* loop through string to be matched */
+		for (j = 0; accept[j] != '\0'; j++)
+		{
+			if (s[i] == accept[j]) /* if there is a match */
+			{
+				count++; /* increase count */
+			}
+		}
+	}
+	return count; /* return count */
 }

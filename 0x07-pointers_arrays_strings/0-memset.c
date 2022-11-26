@@ -13,6 +13,12 @@
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	memset(s, b, n);
-	return (s);
+	int len;
+
+	/* loop until the first n bytes */
+	for (len = 0; len < n; len++)
+	{
+		s[len] = b; /* fill string with a constant byte */
+	}
+	return (s); /* return string */
 }

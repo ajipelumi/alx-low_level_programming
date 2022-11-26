@@ -13,8 +13,22 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *find;
+	int count = 0;
 
-	find = strstr(haystack, needle);
-	return (find);
+	while (*haystack != '\0') /* loop through first string */
+	{
+		/* loop through sub-string */
+		while (*needle != '\0' && *haystack == *needle)
+		{
+			haystack++; /* calls thr next character */
+			needle++; /* calls the next character */
+			count++; /* increase count */
+		}
+		if (!*needle) /* sub-string has been examined and characters found */
+		{
+			return (haystack - count); /* return pointer to first character in haystack */
+		}
+		haystack++;
+	}
+	return (NULL); /* return NULL if sub-string not found */
 }

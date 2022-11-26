@@ -13,6 +13,12 @@
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	memcpy(dest, src, n);
-	return (dest);
+	int len;
+
+	/* loop until n bytes is met */
+	for (len = 0; len < n; len++)
+	{
+		dest[len] = src[len]; /* copy src to dest */
+	}
+	return (dest); /* return copied string */
 }

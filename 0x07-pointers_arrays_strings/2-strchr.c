@@ -12,8 +12,17 @@
 
 char *_strchr(char *s, char c)
 {
-	char *find;
-
-	find = strchr(s, c);
-	return (find);
+	while (*s != '\0') /* loop through string */
+	{
+		if (*s == c) /* if character is located */
+		{
+			return (s); /* return pointer to character */
+		}
+		s++;
+	}
+	if (*s == c) /* if c is terminating null byte */
+	{
+		return (s); /* return pointer to terminator */
+	}
+	return (NULL); /* return NULL if character is not found */
 }

@@ -13,8 +13,21 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	char *r;
+	int i, j;
 
-	r = strpbrk(s, accept);
-	return (r);
+	i = 0;
+	while (s[i] != '\0') /* loop through first string */
+	{
+		j = 0;
+		while (accept[j] != '\0') /* loop through string to be matched */
+		{
+			if (s[i] == accept[j]) /* if a byte is located */
+			{
+				return (s + i); /* return pointer to byte */
+			}
+			j++;
+		}
+		i++;
+	}
+	return (NULL); /* return NULL if no byte is found */
 }
