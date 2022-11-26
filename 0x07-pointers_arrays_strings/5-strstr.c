@@ -26,7 +26,8 @@ char *_strstr(char *haystack, char *needle)
 		}
 		if (!*needle) /* sub-string has been examined and characters found */
 		{
-			return (haystack - count); /* return pointer to first character in haystack */
+			/* return pointer to first character in haystack */
+			return (haystack - count);
 		}
 		haystack++;
 	}
