@@ -13,6 +13,7 @@ void print_name(char *name, void (*f)(char *))
 {
 	if (name && f)
 	{
-	f(name);
+		/* call function to print name */
+		f(name);
 	}
 }

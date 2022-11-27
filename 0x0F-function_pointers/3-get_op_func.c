@@ -14,6 +14,7 @@
 
 int (*get_op_func(char *s))(int, int)
 {
+	/* initialize struct */
 	op_t ops[] = {
 	{"+", op_add},
 	{"-", op_sub},
@@ -25,13 +26,16 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
+	/* iterate through struct */
 	while (i < 5)
 	{
-	if (*s == *ops[i].op)
-	{
-	return (ops[i].f);
+		/* if operator matches */
+		if (*s == *ops[i].op)
+		{
+			/* call corresponding function */
+			return (ops[i].f);
+		}
+		i++; /* check the next operator */
 	}
-	i++;
-	}
-	return (NULL);
+	return (NULL); /* operator does not match the expected operators */
 }

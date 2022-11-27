@@ -18,9 +18,11 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 
 	if (array && size && action)
 	{
-	for (i = 0; i < size; i++)
-	{
-	action(array[i]);
-	}
+		/* loop until end of array */
+		for (i = 0; i < size; i++)
+		{
+			/* call function to be executed */
+			action(array[i]);
+		}
 	}
 }

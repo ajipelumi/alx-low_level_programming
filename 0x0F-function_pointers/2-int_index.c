@@ -19,17 +19,19 @@ int int_index(int *array, int size, int (*cmp)(int))
 
 	if (size > 0 && array && cmp)
 	{
-	for (i = 0; i < size; i++)
-	{
-	if (cmp(array[i]) != 0)
-	{
-	return (i);
-	}
-	}
-	if (cmp(array[i]) == 0)
-	{
-	return (-1);
-	}
+		/* loop through array elements */
+		for (i = 0; i < size; i++)
+		{
+			/* calls function to compare elements */
+			if (cmp(array[i]) != 0)
+			{
+				return (i); /* return index of matching elements */
+			}
+		}
+		if (cmp(array[i]) == 0) /* no element matches */
+		{
+			return (-1);
+		}
 	}
 	return (-1);
 }
