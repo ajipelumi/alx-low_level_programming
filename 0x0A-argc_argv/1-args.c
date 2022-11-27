@@ -13,10 +13,11 @@ int main(int argc, char __attribute__((unused))*argv[])
 {
 	int i, n;
 
+	/* loop until argument count */
 	for (i = 0; i < argc; i++)
 	{
-	n = i;
+		n = i;
 	}
-	printf("%d\n", n);
+	printf("%d\n", n); /* print number of arg (strings) passed */
 	return (0);
 }

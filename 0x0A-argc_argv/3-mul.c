@@ -14,15 +14,16 @@ int main(int argc, char *argv[])
 {
 	int prod;
 
-	if (argc != 3)
+	if (argc != 3) /* if args passed are not exactly 3 */
 	{
-	printf("Error\n");
-	return (1);
+		printf("Error\n"); /* print error */
+		return (1);
 	}
-	else
+	else /* arguments passed are exactly 3 in number */
 	{
-	prod = atoi(argv[1]) * atoi(argv[2]);
-	printf("%d\n", prod);
+		/* atoi converts string to integer */
+		prod = atoi(argv[1]) * atoi(argv[2]); /* get their product */
+		printf("%d\n", prod); /* print product */
 	}
 	return (0);
 }

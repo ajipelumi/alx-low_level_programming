@@ -14,9 +14,10 @@ int main(int argc, char *argv[])
 {
 	int i;
 
+	/* loop through all arguments */
 	for (i = 0; i < argc; i++)
 	{
-	printf("%s\n", argv[i]);
+		printf("%s\n", argv[i]); /* print arg (string) one at a time */
 	}
 	return (0);
 }
