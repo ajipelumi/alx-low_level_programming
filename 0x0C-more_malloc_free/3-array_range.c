@@ -14,21 +14,23 @@
 int *array_range(int min, int max)
 {
 	int i;
-	int *ptr;
+	int *ptr = NULL;
 
-	if (min > max)
+	if (min > max) /* if minimum is greater than maximum */
 	{
-	return (NULL);
+		return (NULL);
 	}
+	/* allocate memory */
 	ptr = malloc(sizeof(int) * ((max - min) + 1));
-	if (ptr == NULL)
+	if (ptr == NULL) /* if malloc fails */
 	{
-	return (NULL);
+		return (NULL);
 	}
 	for (i = 0; min <= max; i++)
 	{
-	ptr[i] = min;
-	min++;
+		/* array contains the values from min to max */
+		ptr[i] = min;
+		min++;
 	}
-	return (ptr);
+	return (ptr); /* return pointer */
 }

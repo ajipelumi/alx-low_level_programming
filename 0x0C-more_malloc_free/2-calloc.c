@@ -15,19 +15,20 @@ char *_memset(char *s, char b, unsigned int n);
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *ptr;
+	char *ptr = NULL;
 
-	if (nmemb == 0 || size == 0)
+	if (nmemb == 0 || size == 0) /* if there is no size */
 	{
-	return (NULL);
+		return (NULL);
 	}
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
+	ptr = malloc(nmemb * size); /* allocate memory */
+	if (ptr == NULL) /* if malloc fails */
 	{
-	return (NULL);
+		return (NULL);
 	}
+	/* call function to set memory to 0 */
 	_memset(ptr, 0, (nmemb * size));
-	return (ptr);
+	return (ptr); /* return pointer */
 }
 
 /**
@@ -44,9 +45,9 @@ char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n; i++) /* loop until n */
 	{
-	s[i] = b;
+		s[i] = b; /* set value of string */
 	}
-	return (s);
+	return (s); /* return string */
 }

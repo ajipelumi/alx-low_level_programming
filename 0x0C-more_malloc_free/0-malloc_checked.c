@@ -12,12 +12,12 @@
 
 void *malloc_checked(unsigned int b)
 {
-	int *ptr;
+	int *ptr = NULL;
 
-	ptr = malloc(b);
-	if (ptr == NULL)
+	ptr = malloc(b); /* allocate memory */
+	if (ptr == NULL) /* if malloc fails */
 	{
-	exit(98);
+		exit(98);
 	}
-	return (ptr);
+	return (ptr); /* return pointer to allocated memory */
 }

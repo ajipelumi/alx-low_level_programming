@@ -15,38 +15,38 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i, j, len1 = 0, len2 = 0, len;
-	char *ptr;
+	char *ptr = NULL;
 
-	if (s1 == NULL)
+	if (s1 == NULL) /* if first string is empty */
 	{
-	s1 = "";
+		s1 = "";
 	}
-	if (s2 == NULL)
+	if (s2 == NULL) /* if second string is empty */
 	{
-	s2 = "";
+		s2 = "";
 	}
 	for (i = 0; s1[i] != '\0'; i++)
 	{
-	len1++;
+		len1++; /* length of first string */
 	}
 	for (i = 0; i < n; i++)
 	{
-	len2++;
+		len2++; /* length of second string */
 	}
-	len = len1 + len2;
-	ptr = malloc(sizeof(char) * len + 1);
-	if (ptr == NULL)
+	len = len1 + len2; /* add both lengths */
+	ptr = malloc(sizeof(char) * len + 1); /* allocate memory */
+	if (ptr == NULL) /* if malloc fails */
 	{
-	return (NULL);
+		return (NULL);
 	}
-	for (i = 0; i < len1; i++)
+	for (i = 0; i < len1; i++) /* loop through first string */
 	{
-	ptr[i] = s1[i];
+		ptr[i] = s1[i]; /* store first string */
 	}
-	for (j = 0; j < n; i++, j++)
+	for (j = 0; j < n; i++, j++) /* loop until n */
 	{
-	ptr[i] = s2[j];
+		ptr[i] = s2[j]; /* store second string */
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	ptr[i] = '\0'; /* null terminate string */
+	return (ptr); /* return pointer to string */
 }
