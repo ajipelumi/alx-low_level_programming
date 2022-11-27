@@ -14,37 +14,38 @@
 char *argstostr(int ac, char **av)
 {
 	int i, j, k, len = 0;
-	char *ptr;
+	char *ptr = NULL;
 
-	if (ac == 0 || av == NULL)
+	if (ac == 0 || av == NULL) /* if no argument is passed */
 	{
-	return (NULL);
+		return (NULL);
 	}
-	for (i = 0; i < ac; i++)
+	for (i = 0; i < ac; i++) /* loop through each args */
 	{
-	for (j = 0; av[i][j] != '\0'; j++)
-	{
-	len++;
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			len++; /* get string length */
+		}
+		len++; /* length increases to store newline */
 	}
-	len++;
-	}
+	/* allocate memory to store args passed */
 	ptr = malloc(sizeof(char) * len + 1);
-	if (ptr == NULL)
+	if (ptr == NULL) /* if malloc fails */
 	{
-	return (NULL);
+		return (NULL);
 	}
 	k = 0;
-	for (i = 0; i < ac; i++)
+	for (i = 0; i < ac; i++) /* loop through each args */
 	{
-	for (j = 0; av[i][j] != '\0'; j++)
-	{
-	ptr[k] = av[i][j];
-	k++;
+		/* loop until null byte is met */
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			ptr[k] = av[i][j]; /* store each string */
+			k++;
+		}
+		ptr[k] = '\n'; /* each arg is followed by a newline */
+		k++;
 	}
-	ptr[k] = '\n';
-	k++;
-	}
-	ptr[k] = '\0';
-	return (ptr);
-	free(ptr);
+	ptr[k] = '\0'; /* null terminate string */
+	return (ptr); /* return pointer to string */
 }

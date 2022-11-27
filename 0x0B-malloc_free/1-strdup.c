@@ -16,27 +16,27 @@ char *_strdup(char *str)
 	int i, len;
 	char *ptr;
 
-	if (!str)
+	if (!str) /* if no string is passed */
 	{
-	return (NULL);
+		return (NULL);
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
-
+		; /* get string length */
 	}
-	len = i;
-	if (str == NULL)
+	len = i; /* assign string length to len */
+	/* allocate memory for string to be duplicated */
+	ptr = malloc(sizeof(char) * len + 1);
+	if (!ptr) /* if malloc fails */
 	{
-	return (NULL);
+		free(ptr);
+		return (NULL);
 	}
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (ptr == NULL)
+	/* loop to duplicate each character in the string */
+	for (i = 0; str[i] != '\0'; i++)
 	{
-	return (NULL);
+		ptr[i] = str[i];
 	}
-	for (i = 0; i < len; i++)
-	{
-	ptr[i] = str[i];
-	}
-	return (ptr);
+	ptr[i] = '\0'; /* null terminate the string */
+	return (ptr); /* return duplicated string */
 }

@@ -16,9 +16,9 @@ void free_grid(int **grid, int height)
 {
 	int i;
 
-	for (i = 0; i < height; i++)
+	for (i = 0; i < height; i++) /* array column */
 	{
-	free(grid[i]);
+		free(grid[i]); /* free memory allocated to integer */
 	}
-	free(grid);
+	free(grid); /* free memory allocated to pointer */
 }

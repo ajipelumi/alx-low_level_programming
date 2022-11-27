@@ -17,18 +17,19 @@ char *create_array(unsigned int size, char c)
 	unsigned int i;
 	char *ptr;
 
-	if (size == 0)
+	if (size == 0) /* if array has no size */
 	{
-	return (NULL);
+		return (NULL);
 	}
-	ptr = malloc(sizeof(char) * size);
-	if (ptr == NULL)
+	ptr = malloc(sizeof(char) * size); /* allocate memory */
+	if (ptr == NULL) /* if malloc fails */
 	{
-	return (NULL);
+		return (NULL);
 	}
+	/* loop until end of array */
 	for (i = 0; i < size; i++)
 	{
-	ptr[i] = c;
+		ptr[i] = c; /* assign character to allocated memory */
 	}
-	return (ptr);
+	return (ptr); /* pointer to array */
 }
