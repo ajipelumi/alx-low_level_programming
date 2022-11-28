@@ -30,13 +30,13 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	len = _strlen(text_content);
+	len = _strlen(text_content); /* get string length */
 	fd_w = write(fd, text_content, len);
 	if (fd_w == -1 || fd_w != len) /* if write fails */
 	{
 		return (-1);
 	}
-	close(fd);
+	close(fd); /* clean up */
 	return (1);
 }
 
@@ -56,9 +56,10 @@ int _strlen(char *str)
 	{
 		return (0);
 	}
+	/* loop through string */
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		len++;
+		len++; /* length increases */
 	}
 	return (len);
 }

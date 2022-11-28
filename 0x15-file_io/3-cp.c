@@ -20,7 +20,7 @@ void file_copy(char *src, char *dest);
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	if (argc != 3) /* if args are not exactly 3 */
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
@@ -69,13 +69,13 @@ void file_copy(char *src, char *dest)
 			exit(99);
 		}
 	}
-	close1 = close(fd1);
+	close1 = close(fd1); /* clean up */
 	if (close1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close1);
 		exit(100);
 	}
-	close2 = close(fd2);
+	close2 = close(fd2); /* clean up */
 	if (close2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close2);

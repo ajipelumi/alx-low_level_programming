@@ -30,6 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
+	/* allocate memory */
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL) /* if there is no space in memory */
 	{
@@ -45,7 +46,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	free(buffer);
-	close(fd);
+	free(buffer); /* free buffer */
+	close(fd); /* clean up */
 	return (fd_w);
 }
