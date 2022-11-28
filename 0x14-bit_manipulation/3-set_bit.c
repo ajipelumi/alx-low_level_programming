@@ -13,6 +13,11 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int mask;
 
+	/**
+	 * say index = 3, mask takes 1 to the 3rd index and
+	 * the (OR) bitwise operator is used to set the value
+	 * of the bit at 3.
+	 */
 	mask = 1 << index;
 	if (index >= (sizeof(unsigned long int) * 8))
 	{

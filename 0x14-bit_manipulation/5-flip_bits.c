@@ -16,14 +16,15 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned long int xor;
 	unsigned int count = 0;
 
-	xor = n ^ m;
+	xor = n ^ m; /* (XOR) bitwise operator */
+	/* divide xor by 2 until 0 is met */
 	while (xor != 0)
 	{
-		if ((xor & 1) == 1)
+		if ((xor & 1) == 1) /* if the bit is 1 */
 		{
-			count++;
+			count++; /* increase count */
 		}
-	xor = xor >> 1;
+		xor = xor >> 1; /* go to the next bit */
 	}
 	return (count);
 }
