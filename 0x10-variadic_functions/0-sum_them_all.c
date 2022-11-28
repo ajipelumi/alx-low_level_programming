@@ -11,21 +11,23 @@
 
 int sum_them_all(const unsigned int n, ...)
 {
-	va_list ap;
+	va_list ap; /* define argument list */
 	unsigned int i;
 	int sum = 0;
 
-	if (n != 0)
+	if (n != 0) /* if number of parameters isn't 0 */
 	{
-	va_start(ap, n);
-	for (i = 0; i < n; i++)
-	{
-	sum = sum + va_arg(ap, int);
+		va_start(ap, n); /* initialize argument list */
+		for (i = 0; i < n; i++)
+		{
+			/* get the next argument value */
+			sum = sum + va_arg(ap, int);
+		}
+		va_end(ap); /* clean up */
+		return (sum);
 	}
-	return (sum);
-	}
-	else
+	else /* number of parameters is 0 */
 	{
-	return (0);
+		return (0);
 	}
 }

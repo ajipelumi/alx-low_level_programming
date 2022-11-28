@@ -12,25 +12,27 @@
 
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list ap;
-	unsigned int i;
+	va_list ap; /* define argument list */
 	char *ptr;
+	unsigned int i;
 
-	va_start(ap, n);
+	va_start(ap, n); /* initialize argument list */
 	for (i = 0; i < n; i++)
 	{
-	ptr = va_arg(ap, char *);
-	if (ptr == NULL)
-	{
-	printf("(nil)");
+		ptr = va_arg(ap, char *); /* get the next argument value */
+		if (ptr == NULL) /* if there is no value */
+		{
+			printf("(nil)");
+		}
+		else /* there is a value */
+		{
+			printf("%s", ptr);
+		}
+		if (separator && i != (n - 1)) /* check if last integer is met */
+		{
+			printf("%s", separator);
+		}
 	}
-	else
-	{
-	printf("%s", ptr);
-	}
-	if (separator && i != (n - 1))
-	printf("%s", separator);
-	}
-	va_end(ap);
+	va_end(ap); /* clean up */
 	printf("\n");
 }
