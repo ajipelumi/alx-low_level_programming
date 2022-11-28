@@ -14,12 +14,12 @@ void free_list(list_t *head)
 {
 	list_t *temp;
 
-	while (head != NULL)
+	while (head != NULL) /* node exists */
 	{
-		temp = head;
-		head = head->next;
-		free(temp->str);
-		free(temp);
+		temp = head; /* head is assigned to temp */
+		head = head->next; /* go to the next node */
+		free(temp->str); /* free allocated memory */
+		free(temp); /* free temp */
 	}
-	free(head);
+	free(head); /* free head */
 }
