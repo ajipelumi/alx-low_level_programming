@@ -14,11 +14,11 @@ void free_listint(listint_t *head)
 {
 	listint_t *temp;
 
-	while (head != NULL)
+	while (head != NULL) /* node exists */
 	{
-		temp = head;
-		head = head->next;
-		free(temp);
+		temp = head; /* head is assigned to temp */
+		head = head->next; /* go to the next node */
+		free(temp); /* free temp */
 	}
-	free(head);
+	free(head); /* free head */
 }

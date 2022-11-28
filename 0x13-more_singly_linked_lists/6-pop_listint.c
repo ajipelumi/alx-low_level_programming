@@ -19,9 +19,9 @@ int pop_listint(listint_t **head)
 	{
 		return (0);
 	}
-	temp = *head;
-	*head = temp->next;
+	temp = *head; /* the address of head is assigned to temp */
+	*head = temp->next; /* points to the next node */
 	num = temp->n;
-	free(temp);
+	free(temp); /* free temp */
 	return (num);
 }

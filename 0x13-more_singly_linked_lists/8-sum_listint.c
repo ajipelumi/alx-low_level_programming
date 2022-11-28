@@ -14,12 +14,11 @@ int sum_listint(listint_t *head)
 {
 	int sum = 0;
 
+	/* loop through linked list */
 	while (head != NULL)
 	{
-		/* add n to sum */
-		sum += head->n;
-		/* goes to the next node */
-		head = head->next;
+		sum += head->n; /* add n to sum */
+		head = head->next; /* go to the next node */
 	}
 	return (sum);
 }

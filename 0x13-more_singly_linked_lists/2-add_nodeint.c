@@ -17,8 +17,9 @@ listint_t *add_nodeint(listint_t **head, const int n)
 
 	if (head != NULL)
 	{
+		/* allocate memory */
 		new = malloc(sizeof(listint_t));
-		if (new == NULL)
+		if (new == NULL) /* if malloc fails */
 		{
 			return (NULL);
 		}

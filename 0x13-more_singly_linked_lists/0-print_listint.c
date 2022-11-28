@@ -14,15 +14,15 @@ size_t print_listint(const listint_t *h)
 {
 	size_t count = 0;
 
+	/* loop through list */
 	while (h != NULL)
 	{
 		if (h->n)
 		{
 			printf("%d\n", h->n);
 		}
-
-	h = h->next;
-	count++;
+		h = h->next; /* go to the next node */
+		count++; /* increase count */
 	}
 	return (count);
 }
