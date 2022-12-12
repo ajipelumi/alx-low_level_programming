@@ -25,17 +25,14 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	else /* both strings are not NULL */
+	for (i = 0; s1[i] != '\0'; i++)
 	{
-		for (i = 0; s1[i] != '\0'; i++)
-		{
-		}
-		len1 = i; /* length of first string */
-		for (i = 0; s2[i] != '\0'; i++)
-		{
-		}
-		len2 = i; /* length of second string */
 	}
+	len1 = i; /* length of first string */
+	for (i = 0; s2[i] != '\0'; i++)
+	{
+	}
+	len2 = i; /* length of second string */
 	len = len1 + len2; /* add both lengths */
 	ptr = malloc(sizeof(char) * len + 1); /* allocate memory */
 	if (ptr == NULL) /* if malloc fails */

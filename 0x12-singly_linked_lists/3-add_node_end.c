@@ -33,14 +33,14 @@ list_t *add_node_end(list_t **head, const char *str)
 		new_node->len = _strlen(ptr);
 		new_node->next = NULL;
 
-		temp = *head; /* copy address of our head to temp */
+		temp = *head; /* copy address of head to temp */
 		if (temp == NULL)
 		{
 			*head = new_node; /* add new node at the beginning */
 		}
 		else
 		{
-			/* temp goes through our list until temp->next is null */
+			/* temp goes through list until temp->next is null */
 			while (temp->next != NULL)
 			{
 				temp = temp->next;
