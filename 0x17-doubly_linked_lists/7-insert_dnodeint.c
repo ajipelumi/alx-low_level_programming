@@ -42,10 +42,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	for (i = 0; i < (idx - 1) && *h; i++) /* go to index */
 	{
 		temp = temp->next; /* temp points to the next node */
-		if (!temp || !(temp->next))
-		{
-			return (NULL);
-		}
+		//if (!temp || !(temp->next))
+		//{
+		//	return (NULL);
+		//}
 	}
 	new->next = temp->next; /* new next now points to temp next */
 	temp->next->prev = new; /* temp next prev now points to new */
