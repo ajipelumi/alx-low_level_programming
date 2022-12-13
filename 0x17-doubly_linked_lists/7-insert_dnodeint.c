@@ -49,8 +49,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		}
 	}
 	new->next = temp->next; /* new next now points to temp next */
+	new->prev = temp; /* new prev now points temp */
 	temp->next->prev = new; /* temp next prev now points to new */
 	temp->next = new; /* temp next now points to new */
-	new->prev = temp; /* new prev now points temp */
 	return (new);
 }
