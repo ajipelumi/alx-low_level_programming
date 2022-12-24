@@ -32,6 +32,14 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (*h);
 	}
 	temp = *h; /* store first node */
+	if (idx == 0) /* if index is at the beginning */
+	{
+		new->next = temp;
+		temp->prev = new;
+		*h = new;
+		return (*h);
+	}
+
 	while (idx > 1) /* go to index */
 	{
 		if (temp)
