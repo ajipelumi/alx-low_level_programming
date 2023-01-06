@@ -2,7 +2,7 @@
 #include <string.h>
 #include "hash_tables.h"
 
-void handle_collision(hash_node_t **ptr, const char *key, const char *value);
+int handle_collision(hash_node_t **ptr, const char *key, const char *value);
 
 /**
  * hash_table_set - adds an element to the hash table.
