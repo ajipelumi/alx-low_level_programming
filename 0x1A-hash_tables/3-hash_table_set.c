@@ -16,10 +16,10 @@ int handle_collision(hash_node_t **ptr, const char *key, const char *value);
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *ptr;
+	hash_node_t *ptr, *node;
 	unsigned long int hash, index;
 
-	if (ht == NULL ||  ht->array == NULL || key == NULL || value == NULL)
+	if (!ht || !ht->array || !key || !(*key) || !value)
 	{
 		return (0);
 	}
@@ -27,27 +27,28 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash = hash_djb2((const unsigned char *)key); /* generate hash value */
 	index = hash % ht->size; /* retrieve index */
 
+	ptr = ht->array[index];
 	if (ht->array[index] == NULL) /* no item at index */
 	{
-		ptr = malloc(sizeof(hash_node_t));
-		if (ptr == NULL) /* malloc fails */
+		node = malloc(sizeof(hash_node_t));
+		if (node == NULL) /* malloc fails */
 		{
 			return (0);
 		}
-		ptr->key = strdup(key);
-		if (ptr->key == NULL)
+		node->key = strdup(key);
+		if (node->key == NULL)
+		{
+			free(node);
+			return (0);
+		}
+		node->value = strdup(value);
+		if (node->value == NULL)
 		{
 			free(ptr);
 			return (0);
 		}
-		ptr->value = strdup(value);
-		if (ptr->value == NULL)
-		{
-			free(ptr);
-			return (0);
-		}
-		ptr->next = NULL;
-		ht->array[index] = ptr; /* index now points to first node */
+		node->next = NULL;
+		ht->array[index] = node; /* index now points to first node */
 		return (1);
 	}
 	else
