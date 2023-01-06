@@ -40,7 +40,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (0);
 		}
 		ptr->key = strdup(key);
+		if (ptr->key == NULL)
+		{
+			free(ptr);
+			return (0);
+		}
 		ptr->value = strdup(value);
+		if (ptr->value == NULL)
+		{
+			free(ptr);
+			return (0);
+		}
 		ptr->next = NULL;
 		ht->array[index] = ptr; /* index now points to first node */
 		return (1);
@@ -52,6 +62,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			free(ptr->value);
 			ptr->value = strdup(value);
+			if (ptr->value == NULL)
+			{
+				free(ptr);
+				return (0);
+			}
 			return (1);
 		}
 		else /* collision occurs */
@@ -89,7 +104,17 @@ int handle_collision(hash_node_t **head, const char *key, const char *value)
 	}
 
 	node->key = strdup(key);
+	if (node->key == NULL)
+	{
+		free(node);
+		return (0);
+	}
 	node->value = strdup(value);
+	if (node->value == NULL)
+	{
+		free(node);
+		return (0);
+	}
 	node->next = *head; /* new node points to head node */
 	*head = node; /* head now points to new node */
 	return (1);
