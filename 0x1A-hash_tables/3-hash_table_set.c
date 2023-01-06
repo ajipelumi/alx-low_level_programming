@@ -24,11 +24,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 
-	if (strlen(key) == 0) /* empty key */
-	{
-		return (0);
-	}
-
 	hash = hash_djb2((const unsigned char *)key); /* generate hash value */
 	index = hash % ht->size; /* retrieve index */
 
