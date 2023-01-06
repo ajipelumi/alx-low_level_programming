@@ -37,8 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ptr = malloc(sizeof(hash_node_t));
 		if (ptr == NULL) /* malloc fails */
 		{
-			free(ht);
-			exit(EXIT_FAILURE);
+			return (0);
 		}
 		ptr->key = strdup(key);
 		ptr->value = strdup(value);
@@ -51,15 +50,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		/* key needs to be updated */
 		if (strcmp(ptr->key, key) == 0)
 		{
-			strcpy(ptr->value, value);
+			free(ptr->value);
+			ptr->value = strdup(value);
 			return (1);
 		}
 		else /* collision occurs */
 		{
 			/* call function to handle collision */
-			handle_collision(&ptr, key, value);
-			ht->array[index] = ptr; /* index now points to new node */
-			return (1);
+			if (handle_collision(&ptr, key, value) == 1)
+			{
+				ht->array[index] = ptr; /* index now points to new node */
+				return (1);
+			}
 		}
 	}
 	return (0);
@@ -72,22 +74,23 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * @key: key to be add
  * @value: value associated with the key
  *
- * Return: void
+ * Return: 1 on success, 0 on failure
  */
 
 
-void handle_collision(hash_node_t **head, const char *key, const char *value)
+int handle_collision(hash_node_t **head, const char *key, const char *value)
 {
 	hash_node_t *node = NULL;
 
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL) /* malloc fails */
 	{
-		exit(EXIT_FAILURE);
+		return (0);
 	}
 
 	node->key = strdup(key);
 	node->value = strdup(value);
 	node->next = *head; /* new node points to head node */
 	*head = node; /* head now points to new node */
+	return (1);
 }
