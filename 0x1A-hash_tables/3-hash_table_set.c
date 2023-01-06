@@ -19,7 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *ptr;
 	unsigned long int hash, index;
 
-	if (ht == NULL || key == NULL || value == NULL)
+	if (ht == NULL ||  ht->array == NULL || key == NULL || value == NULL)
 	{
 		return (0);
 	}
