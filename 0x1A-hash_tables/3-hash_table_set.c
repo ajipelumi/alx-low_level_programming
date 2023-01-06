@@ -17,16 +17,15 @@ int handle_collision(hash_node_t **ptr, const char *key, const char *value);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *ptr, *node;
-	unsigned long int hash, index;
+	unsigned long int index;
 
 	if (!ht || !ht->array || !key || !(*key) || !value)
 	{
 		return (0);
 	}
 
-	hash = hash_djb2((const unsigned char *)key); /* generate hash value */
-	index = hash % ht->size; /* retrieve index */
-
+	/* get key index */
+	index = key_index((const unsigned char *)key, ht->size);
 	ptr = ht->array[index];
 	if (ht->array[index] == NULL) /* no item at index */
 	{
