@@ -73,11 +73,8 @@ void str_table(hash_node_t *tab, char *str, int count, int size)
 				return;
 			}
 		}
-		sprintf(str + count, "'%s' : '%s'", tab->key, tab->value);
-		if (tab->next != NULL)
-		{
-			strcat(str, ", "); /* append comma and space */
-		}
+		sprintf(str + strlen(str), "'%s' : '%s'", tab->key, tab->value);
+		strcat(str, ", "); /* append comma and space */
 
 		tab = tab->next; /* go to next node */
 	}
