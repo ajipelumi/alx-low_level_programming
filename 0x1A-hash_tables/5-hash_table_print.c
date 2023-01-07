@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "hash_tables.h"
 
@@ -13,44 +14,43 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *node;
-	char *str;
-	char braces[] = "{}";
+	char *buf;
 	unsigned long int i;
-	int len;
+	int len, buff_size = 1024, count = 0;
 
 	if (!ht)
-	{
 		return;
-	}
 
-	printf("%c", braces[0]);
+	buf = calloc(buff_size, sizeof(char));
+	if (buf == NULL) /* malloc fails */
+		return;
+
+	putchar('{');
 	for (i = 0; i < ht->size; i++) /* loop through table */
 	{
 		if (ht->array[i]) /* access index with items */
-		{
 			node = ht->array[i];
 			while (node != NULL)
 			{
-				str = malloc(sizeof(char) * strlen(node->key) * strlen(node->value) + 4);
-				if (str == NULL) /* malloc fails */
-				{
-					return;
-				}
+				count = strlen(node->key) + strlen(node->value) + 4;
+				if (count >= buff_size) /* buffer overflow */
+					buf = realloc(buf, (buff_size * 2)); /* reallocate memory */
+					if (buf == NULL) /* fails to reallocate memory */
+						free(buf);
+						return;
 
-				sprintf(str, "'%s' : '%s'", node->key, node->value);
+				sprintf(buf + strlen(buf), "'%s' : '%s'", node->key, node->value);
 				if (node->next == NULL)
-				{
-					strcat(str, ", ");
-				}
-				len = strlen(str);
-				str[len - 1] = '\0'; /* null terminate last byte */
-				str[len - 2] = '\0'; /* null terminate second last byte */
-				printf("%s", str);
-				free(str);
-				node = node->next;
+					strcat(buf, ", "); /* append comma and space */
+
+				node = node->next; /* go to next node */
 			}
-		}
 	}
-	printf("%c", braces[1]);
-	printf("\n");
+	len = strlen(buf);
+	buf[len - 1] = '\0'; /* null terminate last byte */
+	buf[len - 2] = '\0'; /* null terminate second last byte */
+	printf("%s", buf);
+	free(buf);
+	putchar('}');
+	putchar('\n');
 }
