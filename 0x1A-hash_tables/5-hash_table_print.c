@@ -59,8 +59,6 @@ void hash_table_print(const hash_table_t *ht)
 
 void str_table(hash_node_t *tab, char *str, int count, int size)
 {
-
-
 	while (tab != NULL)
 	{
 		count = strlen(tab->key) + strlen(tab->value) + 4;
