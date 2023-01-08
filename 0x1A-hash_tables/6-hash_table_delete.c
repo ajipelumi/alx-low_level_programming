@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "hash_tables.h"
 
+void free_node(hash_node_t *node);
+
 /**
  * hash_table_delete - deletes a hash table
  *
@@ -19,19 +21,36 @@ void hash_table_delete(hash_table_t *ht)
 		return;
 	}
 
-	for (i = 0; i < ht->size; i++) /* loop through table */
+	for (i = 0; i < ht->size; i++)
 	{
-		if (ht->array[i])
+		temp = ht->array[i];
+		if (temp)
 		{
-			temp = ht->array[i];
-			while (temp != NULL)
-			{
-				free(temp->key);
-				free(temp->value);
-				temp = temp->next;
-			}
+			free_node(temp);
 		}
-		free(ht->array[i]);
 	}
+	free(ht->array);
 	free(ht);
+}
+
+/**
+ * free_node - deletes a hash node
+ *
+ * @node: node to be freed
+ *
+ * Return: void
+ */
+
+void free_node(hash_node_t *node)
+{
+	hash_node_t *temp;
+
+	while (node != NULL)
+	{
+		temp = node->next;
+		free(node->key);
+		free(node->value);
+		free(node);
+		node = temp;
+	}
 }
