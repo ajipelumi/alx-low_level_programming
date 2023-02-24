@@ -1,0 +1,27 @@
+# set variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# all rule
+all: $(NAME)
+
+$(NAME): $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
+
+$(OBJ): m.h
+
+# clean up
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) *~ $(NAME) $(OBJ)
+
+re:
+	$(oclean) $(all)
