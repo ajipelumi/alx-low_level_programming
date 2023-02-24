@@ -1,0 +1,13 @@
+# set variables
+CC = gcc
+SRC = main.c school.c
+OBJ = main.o school.o
+NAME = school
+
+# all rule
+all: $(NAME)
+
+$(NAME): $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
+
+$(OBJ): m.h
