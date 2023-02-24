@@ -1,0 +1,9 @@
+# set variables
+CC = gcc
+SRC := $(wildcard *.c)
+
+# all rule
+all: school
+
+school: main.c school.c m.h
+	$(CC) $(SRC) -o school
