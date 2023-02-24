@@ -5,5 +5,5 @@ SRC := $(wildcard *.c)
 # all rule
 all: school
 
-school: main.c school.c m.h
+school: $(SRC) m.h
 	$(CC) $(SRC) -o school
