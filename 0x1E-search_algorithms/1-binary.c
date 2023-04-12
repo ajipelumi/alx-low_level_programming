@@ -65,7 +65,7 @@ int binary(int *array, size_t low, size_t high, int value)
 		return (-1);
 	}
 
-	mid = low + (high - low) / 2; /* find middle index */
+	mid = (low + high) / 2; /* find middle index */
 
 	/* if element at middle index is the value to search for */
 	if (array[mid] == value)
