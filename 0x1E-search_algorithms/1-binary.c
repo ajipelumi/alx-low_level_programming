@@ -20,6 +20,11 @@ int binary_search(int *array, size_t size, int value)
 		return (-1);
 	}
 
+	if (size == 0) /* if size is zero */
+	{
+		return (-1);
+	}
+
 	/* call binary function to search array */
 	idx = binary(array, 0, (int)size - 1, value);
 	if (idx != -1)
