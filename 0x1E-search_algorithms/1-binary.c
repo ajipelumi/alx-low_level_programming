@@ -1,6 +1,6 @@
 #include "search_algos.h"
 
-int binary(int *array, int low, int high, int value);
+int binary(int *array, size_t low, size_t high, int value);
 
 /**
  * binary_search - searches for a value in a sorted array of integers
@@ -26,7 +26,7 @@ int binary_search(int *array, size_t size, int value)
 	}
 
 	/* call binary function to search array */
-	idx = binary(array, 0, (int)size - 1, value);
+	idx = binary(array, 0, size - 1, value);
 	if (idx != -1)
 	{
 		return (idx);
@@ -45,9 +45,9 @@ int binary_search(int *array, size_t size, int value)
  * Return: the first index where value is located
  */
 
-int binary(int *array, int low, int high, int value)
+int binary(int *array, size_t low, size_t high, int value)
 {
-	int i, mid;
+	size_t i, mid;
 
 	printf("Searching in array: ");
 	for (i = low; i <= high; i++)
