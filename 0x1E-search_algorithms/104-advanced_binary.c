@@ -61,7 +61,7 @@ int binary(int *array, size_t left, size_t right, int value)
 		}
 		else /* element at mid index is value */
 		{
-			if (mid > 0 && array[mid - 1] == value) /* check for duplicate values */
+			if (array[mid - 1] == value) /* check for duplicate values */
 			{
 				return (binary(array, left, mid, value));
 			}
