@@ -1,5 +1,7 @@
 #include "search_algos.h"
 
+int binary(int *array, size_t left, size_t right, int value);
+
 /**
  * advanced_binary - searches for a value in a sorted array of integers
  * @array: a pointer to the first element of the array to search in
@@ -11,7 +13,7 @@
 
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t i, left, right, mid;
+	size_t left, right, idx;
 
 	if (array == NULL) /* if array is null */
 	{
@@ -20,7 +22,25 @@ int advanced_binary(int *array, size_t size, int value)
 
 	left = 0;
 	right = (size - 1);
-	while (left <= right)
+	idx = binary(array, left, right, value);
+	return (idx);
+}
+
+/**
+ * binary - searches for a value in a sorted array of integers
+ * @array: a pointer to the first element of the array to search in
+ * @left: starting index of array
+ * @right: last index of array
+ * @value: the value to search for
+ *
+ * Return: the index where value is located
+ */
+
+int binary(int *array, size_t left, size_t right, int value)
+{
+	size_t i, mid;
+
+	if (left <= right)
 	{
 		printf("Searching in array: ");
 		for (i = left; i <= right; i++)
@@ -33,20 +53,22 @@ int advanced_binary(int *array, size_t size, int value)
 		mid = left + (right - left) / 2; /* find middle index */
 		if (array[mid] < value) /* element at mid index is less than value */
 		{
-			left = mid + 1;
+			return (binary(array, mid + 1, right, value));
 		}
 		else if (array[mid] > value) /* element at mid index is greater than value */
 		{
-			right = mid - 1;
+			return (binary(array, left, mid - 1, value));
 		}
 		else /* element at mid index is value */
 		{
-			if (array[mid - 1] == value) /* check for duplicate values */
+			if (mid > 0 && array[mid - 1] == value) /* check for duplicate values */
 			{
-				right = mid; /* search array again if duplicate is met */
+				return (binary(array, left, mid, value));
 			}
 			else /* no duplicate is met */
+			{
 				return (mid);
+			}
 		}
 	}
 	return (-1); /* value not found */
